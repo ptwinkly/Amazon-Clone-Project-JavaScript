@@ -1,5 +1,5 @@
 // Import variables from a file
-import {cart} from '../data/cart.js';
+import {cart, addToCart} from '../data/cart.js';
 import { products } from '../data/products.js';
 
 // Generate HTML to show each product on the page
@@ -63,38 +63,24 @@ products.forEach((product) => {
 // Inject gernated html into html file
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
+// Count Cart Quantity : Total items in the cart
+// And updating the webpage
+function updateCartQueantity(){
+  
+  let cartQuantity = 0;
+
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+
+  document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+}
+
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {
     button.addEventListener('click', () => {
       const productId = button.dataset.productId;
-      
-      // check matching items in the cart
-      // if it matches = exists then add the quantity
-      let matchingItem;
-
-      cart.forEach((item) => {
-        if(productId === item.productId){
-          matchingItem = item;
-        }
-      });
-
-      if(matchingItem){
-        matchingItem.quantity += 1;
-      }else{
-        cart.push({
-          productId: productId,
-          quantity: 1
-        });
-      }
-
-      // Count Cart Quantity : Total items in the cart
-      let cartQuantity = 0;
-
-      cart.forEach((item) => {
-        cartQuantity += item.quantity;
-      });
-
-      document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
-
+      addToCart(productId);
+      updateCartQueantity();
     });
 });
