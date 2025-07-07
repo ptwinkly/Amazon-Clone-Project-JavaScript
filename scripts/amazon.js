@@ -1,9 +1,6 @@
-// import variables from a file
+// Import variables from a file
 import {cart} from '../data/cart.js';
-
-//More Example
-//import {cart as myCart} from '../data/cart.js';
-//const cart = [];
+import { products } from '../data/products.js';
 
 // Generate HTML to show each product on the page
 // instead of duplicating html manually
