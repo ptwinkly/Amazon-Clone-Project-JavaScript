@@ -1,4 +1,4 @@
-## JavaScript Amazon Clone Project
+## JavaScript Amazon Project
 This project was completed as part of 'JavaScript Tutorial Full Course' by SuperSimpleDev on YouTube. It served as a practical application of basic JavaScript concepts.
 
 Course Link: [JavaScript Tutorial Full Course](https://youtu.be/EerdGm-ehJQ)
