@@ -84,7 +84,7 @@ document.querySelectorAll('.js-add-to-cart')
         });
       }
 
-      console.log(cart);
+      //console.log(cart);
 
     });
 });
