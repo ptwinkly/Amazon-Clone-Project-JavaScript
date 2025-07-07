@@ -1,6 +1,12 @@
+// import variables from a file
+import {cart} from '../data/cart.js';
+
+//More Example
+//import {cart as myCart} from '../data/cart.js';
+//const cart = [];
+
 // Generate HTML to show each product on the page
 // instead of duplicating html manually
-
 let productsHTML = '';
 
 products.forEach((product) => {
