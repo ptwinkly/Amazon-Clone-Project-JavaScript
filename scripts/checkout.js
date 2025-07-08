@@ -97,6 +97,7 @@ cart.forEach((cartItem) => {
 
 document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
 
+// Delete link: remove items
 document.querySelectorAll('.js-delete-link').forEach((link) => {
   link.addEventListener('click', ()=> {
     const productId = link.dataset.productId;
