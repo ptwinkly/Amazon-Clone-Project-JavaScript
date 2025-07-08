@@ -2,7 +2,7 @@
 export let cart = JSON.parse(localStorage.getItem('cart'));
 
 // if cart is empty = null, give it default value
-if(!cart){ 
+if(!cart){
   // if not null = truthy
   cart = [{
     productId: 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',

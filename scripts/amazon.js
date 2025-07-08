@@ -64,6 +64,8 @@ products.forEach((product) => {
 // Inject gernated html into html file
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
+updateCartQueantity();
+
 // Count Cart Quantity : Total items in the cart
 // And updating the webpage
 function updateCartQueantity(){
