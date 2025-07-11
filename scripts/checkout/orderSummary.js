@@ -5,6 +5,7 @@ import {hello} from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import {deliveryOptions, getDeliveryOption} from '../../data/deliveryOption.js';
 import { renderPaymentSummary } from './paymentSummary.js';
+import { renderCheckoutHeader } from './checkoutHeader.js';
 
 export function renderOrderSummary(){
 
@@ -109,14 +110,6 @@ export function renderOrderSummary(){
 
   document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
 
-  updateItemQuantity();
-
-  function updateItemQuantity(){
-    let cartQuantity = calculateCartQuantity();
-    document.querySelector('.js-return-to-home').innerHTML = 
-    cartQuantity <= 1 ? `${cartQuantity} item`:`${cartQuantity} items`;
-  }
-
   // Update btn link
   document.querySelectorAll('.js-update-link').forEach((link) => {
     link.addEventListener('click', () => {
@@ -154,7 +147,7 @@ export function renderOrderSummary(){
 
       const container = document.querySelector(`.js-cart-item-container-${productId}`);
       container.remove();
-      updateItemQuantity();
+      renderCheckoutHeader();
       renderPaymentSummary();
     });
   });
@@ -165,6 +158,7 @@ export function renderOrderSummary(){
       element.addEventListener('click', () => {
         const {productId, deliveryOptionId} = element.dataset;
         updateDeliveryOption(productId, deliveryOptionId);
+        renderCheckoutHeader();
         renderOrderSummary();
         renderPaymentSummary();
       });
