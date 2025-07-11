@@ -44,12 +44,15 @@ export function renderOrderSummary(){
               $${formatCurrency(matchingProduct.priceCents)}
             </div>
             <div class="product-quantity">
-              <span>
-                Quantity: <span class="quantity-label">${cartItem.quantity}</span>
+              <span class="update-link-container-${matchingProduct.id}">
+                <span>
+                  Quantity: <span class="quantity-label">${cartItem.quantity}</span>
+                </span>
+                <span class="update-quantity-link link-primary js-update-link" data-product-id="${matchingProduct.id}">
+                  Update
+                </span>
               </span>
-              <span class="update-quantity-link link-primary js-update-link js-update-link-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
-                Update
-              </span>
+              <span class="save-link-container js-save-link-container js-save-link-container-${matchingProduct.id}" data-product-id="${matchingProduct.id}"></span>
               <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
                 Delete
               </span>
@@ -117,11 +120,29 @@ export function renderOrderSummary(){
   // Update btn link
   document.querySelectorAll('.js-update-link').forEach((link) => {
     link.addEventListener('click', () => {
+
       const productId = link.dataset.productId;
-      document.querySelector(`.js-update-link-${productId}`).innerHTML = `
-      <input class = "quantity-input js-quantity-input">
-      <span class="save-quantity-link link-primary">Save</span>
-      `
+
+      cart.forEach((cartItem) => {
+        if(cartItem.productId === productId){
+          cartItem = cartItem;
+          document.querySelector(`.update-link-container-${productId}`).innerHTML = `
+            <span>Quantity: </span>        
+            <input type="number" class = "quantity-input js-quantity-input-${productId}" name="quantity" value="${cartItem.quantity}">
+            `
+          document.querySelector(`.js-save-link-container-${productId}`).innerHTML = `
+           <span class="save-quantity-link link-primary js-save-quantity-link" >Save</span>
+          `
+        }
+      });
+    });
+  });
+
+  // Save update
+  document.querySelectorAll('.js-save-link-container').forEach((link) => {
+    link.addEventListener('click',() => {
+      const productId = link.dataset.productId;
+      console.log(productId);
     });
   });
 
