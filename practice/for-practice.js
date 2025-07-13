@@ -40,3 +40,15 @@ let dayOfWeek = date.format('dddd');
 
 }
  */
+
+let matchingItemFalse;
+console.log(matchingItemFalse);
+
+let matchingItemTrue = '12345';
+console.log(matchingItemTrue);
+
+if(matchingItemFalse){
+  console.log('matchingItemFalse');
+}else if(matchingItemTrue){
+  console.log('matchingItemTrue');
+}
