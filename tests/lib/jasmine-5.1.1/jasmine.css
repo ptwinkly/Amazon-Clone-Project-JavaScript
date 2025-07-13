@@ -1,6 +1,7 @@
 @charset "UTF-8";
 body {
   overflow-y: scroll;
+  background-color: darkcyan;
 }
 
 .jasmine_html-reporter {
@@ -12,6 +13,7 @@ body {
   font-family: Monaco, "Lucida Console", monospace;
   line-height: 14px;
   color: #333;
+  background-color: rgb(201, 240, 250);
 }
 .jasmine_html-reporter a {
   text-decoration: none;
