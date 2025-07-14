@@ -34,26 +34,31 @@ class Product {
   getPrice(){
     return `$${formatCurrency(this.priceCents)}`;
   }
+
+  extraInfoHTML(){
+    return ``;
+  }
+
 }
 
-/* Example : 
-const product1 = new Product({
-    id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-    image: "images/products/athletic-cotton-socks-6-pairs.jpg",
-    name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
-    rating: {
-      stars: 4.5,
-      count: 87
-    },
-    priceCents: 1090,
-    keywords: [
-      "socks",
-      "sports",
-      "apparel"
-    ]
-});
-console.log(product1);
-*/
+class Clothing extends Product {
+
+  sizeChartLink;
+  
+  constructor(productDetials){
+    super(productDetials); // call the constructor of the parent class
+    this.sizeChartLink = productDetials.sizeChartLink;
+  }
+
+  extraInfoHTML(){
+    //super.extraInfoHTML(); //call parent's method
+
+    return `
+      <a href=${this.sizeChartLink} target="_blank">Size chart</a>
+    `;
+  }
+
+}
 
 // Transforming into a class
 export const products = [
@@ -716,6 +721,11 @@ export const products = [
     ]
   }
 ].map((productDetials) => { // map = loop through an array
+  
+  if(productDetials.type === 'clothing'){
+    return new Clothing(productDetials);
+  }
   return new Product(productDetials);
+
 });
 //console.log(products);
