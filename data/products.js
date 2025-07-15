@@ -74,8 +74,9 @@ export function loadProducts(fun){
         return new Clothing(productDetials);
       }
       return new Product(productDetials);
-    });;
-    console.log('load products completed!');
+    });
+
+    console.log('load products completed');
 
     fun();
   });
