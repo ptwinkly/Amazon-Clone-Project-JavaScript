@@ -14,15 +14,25 @@ import { loadCart } from '../data/cart.js';
 
 async function loadPage(){
   
-  //load product
-  await loadProductsFetch();
+  try{ //error handling
 
-  //load cart
-  await new Promise((resolve) => {
-    loadCart(() => {
-      resolve();
+    //throw 'error1'; // manually create error
+
+    //load product
+    await loadProductsFetch();
+
+    //load cart
+    await new Promise((resolve, reject) => {
+      //throw 'error2';
+      loadCart(() => {
+        //reject('error3');
+        resolve();
+      });
     });
-  })
+
+  }catch(error){
+    console.log('unexpected error. Please try again later.');
+  }
 
   //load pages
   renderCheckoutHeader();
