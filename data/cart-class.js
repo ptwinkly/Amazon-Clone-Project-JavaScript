@@ -93,8 +93,8 @@ const businessCart = new Cart('cart-business-oop');
 
 //cart.#localStorageKey = 'test';
 
-console.log(cart);
-console.log(businessCart);
+//console.log(cart);
+//console.log(businessCart);
 
 // Check if businessCart is an instance of Cart class
-console.log(businessCart instanceof Cart); // true
+//console.log(businessCart instanceof Cart); // true

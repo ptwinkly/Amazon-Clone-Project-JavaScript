@@ -100,7 +100,7 @@ export function loadProducts(fun){
       return new Product(productDetials);
     });
 
-    console.log('load products completed');
+    console.log('load products');
 
     fun();
   });
