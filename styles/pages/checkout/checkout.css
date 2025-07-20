@@ -139,6 +139,10 @@
   font-size: 16px;
 }
 
+.save-quantity-link{
+  display: none;
+}
+
 .delivery-options-title {
   font-weight: 700;
   margin-bottom: 10px;

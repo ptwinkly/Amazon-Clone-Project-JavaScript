@@ -1,4 +1,4 @@
-import {cart, removeFromCart, calculateCartQuantity,updateDeliveryOption} from '../../data/cart.js';
+import {cart, removeFromCart, calculateCartQuantity,updateDeliveryOption, updateCartQuantity} from '../../data/cart.js';
 import { products, getProduct } from '../../data/products.js';
 import { formatCurrency } from '../utils/money.js';
 import {hello} from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
@@ -11,6 +11,8 @@ export function renderOrderSummary(){
 
   let cartSummaryHTML = '';
   cart.forEach((cartItem) => {
+
+    //console.log(cartItem);
 
     const productId = cartItem.productId;
     const matchingProduct = getProduct(productId);
@@ -45,15 +47,18 @@ export function renderOrderSummary(){
               ${matchingProduct.getPrice()}
             </div>
             <div class="product-quantity js-product-quantity-${matchingProduct.id}">
-              <span class="update-link-container-${matchingProduct.id}">
-                <span>
-                  Quantity: <span class="quantity-label">${cartItem.quantity}</span>
+              
+                <span class="js-quantity-label-container-${matchingProduct.id}">
+                  Quantity: <span class="quantity-label">${cartItem.quantity} </span>
                 </span>
-                <span class="update-quantity-link link-primary js-update-link" data-product-id="${matchingProduct.id}">
-                  Update
-                </span>
-              </span>
-              <span class="save-link-container js-save-link-container js-save-link-container-${matchingProduct.id}" data-product-id="${matchingProduct.id}"></span>
+                <span class="js-update-to-save-link-container-${matchingProduct.id}">
+                  <span class="update-quantity-link link-primary js-update-link js-update-link-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
+                    Update
+                  </span>
+                  <span class="save-quantity-link link-primary js-save-quantity-link js-save-quantity-link-${matchingProduct.id}" data-product-id="${productId}">
+                  Save
+                  </span>
+            
               <span class="delete-quantity-link link-primary js-delete-link js-delete-link-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
                 Delete
               </span>
@@ -119,23 +124,36 @@ export function renderOrderSummary(){
       cart.forEach((cartItem) => {
         if(cartItem.productId === productId){
           cartItem = cartItem;
-          document.querySelector(`.update-link-container-${productId}`).innerHTML = `
-            <span>Quantity: </span>        
-            <input type="number" class = "quantity-input js-quantity-input-${productId}" name="quantity" value="${cartItem.quantity}">
-            `
-          document.querySelector(`.js-save-link-container-${productId}`).innerHTML = `
-           <span class="save-quantity-link link-primary js-save-quantity-link" >Save</span>
+
+          document.querySelector(`.js-quantity-label-container-${productId}`).innerHTML = `      
+            Quantity: <input type="number" class = "quantity-input js-quantity-input-${productId}" name="quantity" value="${cartItem.quantity}">
           `
+
+          document.querySelector(`.js-update-link-${productId}`).style.display = 'none';
+
+          document.querySelector(`.js-save-quantity-link-${productId}`).style.display = 'initial';
+          
         }
       });
     });
   });
 
   // Save update
-  document.querySelectorAll('.js-save-link-container').forEach((link) => {
+  document.querySelectorAll('.js-save-quantity-link').forEach((link) => {
+    //console.log(link);
     link.addEventListener('click',() => {
       const productId = link.dataset.productId;
-      console.log(productId);
+      const newQuantityElement = document.querySelector(`.js-quantity-input-${productId}`);
+      const newQuantity = newQuantityElement.value;
+      cart.forEach((cartItem) => {
+        if(cartItem.productId === productId){
+          cartItem = cartItem;
+          updateCartQuantity(cartItem, newQuantity);
+        }
+      });
+      renderCheckoutHeader();
+      renderOrderSummary();
+      renderPaymentSummary();
     });
   });
 

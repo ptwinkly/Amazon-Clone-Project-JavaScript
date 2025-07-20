@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Span Event Listener</title>
+</head>
+<body>
+    <h1>Dynamic Event Listener Example</h1>
+    <div id="myContainer">
+        </div>
+
+    <script>
+      // 1. Get a reference to an existing parent element
+      const container = document.getElementById('myContainer');
+
+      // 2. Create a new span element
+      const newSpan = document.createElement('span');
+      newSpan.textContent = 'Click me!';
+      newSpan.style.cursor = 'pointer'; // Make it look clickable
+      newSpan.id = 'dynamicSpan'; // Give it an ID for demonstration
+
+      // 3. Add an event listener to the newly created span
+      newSpan.addEventListener('click', function() {
+          console.log('Dynamic span clicked!');
+          alert('You clicked the dynamically added span!');
+      });
+
+      // 4. Append the new span to the container
+      container.appendChild(newSpan);
+
+      console.log('Span created and listener added.');
+    </script>
+</body>
+</html>

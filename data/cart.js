@@ -26,6 +26,16 @@ function saveToStorage(){
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+export function updateCartQuantity(cartItem, newQuantity){
+  const quantity = parseInt(newQuantity);
+  if(quantity > 0){
+    cartItem.quantity = quantity;
+  }else{
+    cartItem.quantity = cartItem.quantity;
+  } 
+  saveToStorage();
+}
+
 export function calculateCartQuantity(){
   let cartQuantity = 0;
   cart.forEach((cartItem) => {
