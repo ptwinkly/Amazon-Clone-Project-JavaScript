@@ -27,7 +27,7 @@ This project was completed as part of [JavaScript Tutorial Full Course](https://
 - Async Await
 
 ### My Contribution & Learning:
-The course mainly focused on the foundational JavaScript. I followed along with the code implementation under the instructor's guidance to better understand the development process and JavaScript concepts. However, I made sure that I didn't just follow along and copy the code without understanding how it works or why it is important for me to know. The followings are what I learned through the project.
+The course mainly focused on the foundational JavaScript. I followed along with the code implementation under the instructor's guidance to better understand the development process and JavaScript concepts. However, I made sure that I didn't just follow along and copy the code without understanding how it works or why it is important for me to know. The following are what I learned through the project.
 
 * **Implementing core JavaScript concepts in practical exercises:** I actively built online retailer clone, Amazon,  where I got to handle DOM manipulation, event listeners, and local storage for persistence. Together with small projects along the way such as 'Rock-Paper-Scissors', 'Simple To-do list', and 'Coin Flip Game', these allowed me to solidify my understanding of variables, data types, operators, and control flow.
 
