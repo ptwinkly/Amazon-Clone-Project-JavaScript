@@ -46,13 +46,13 @@ The course mainly focused on the foundational JavaScript. I followed along with 
 ### Additional project improvement:
 These are some additional improvements I have made and planned to make in order to enchance my skills, since these functions are not instructed in the course but inclueded in the complete Amazon clone web example provided by the instructor.
 (Note : ✅ means the improvement has been added)
-1. [amazon.html] Show “Added!” label for a certain time after clicking “Add to cart”
-2. [checkout.html] Make update & save quantity button interactive ✅
-3. [checkout.html] Update order page when clicking place your order
-4. [checkout.html] When the cart is empty, show add some texts to show that the cart is empty and add one button to go back to the home page. Also, grey out place your order button.
-5. [checkout.html] After a customer click 'place your order', reset the cart quantity to zero
-6. [orders.html] Make 'buy it again' button interactive
-7. [orders.html] Make track package button interactive
+1. [amazon.html] Show “Added!” label for a certain time after clicking “Add to cart”.
+2. [checkout.html] Make update & save quantity button interactive. ✅
+3. [checkout.html] Update order page when clicking place your order.
+4. [checkout.html] When the cart is empty, add some texts to show that the cart is empty and add one button to go back to the home page. Also, grey out place your order button.
+5. [checkout.html] After a customer click 'place your order', reset the cart quantity to zero.
+6. [orders.html] Make 'buy it again' button interactive.
+7. [orders.html] Make track package button interactive.
 
 ### Challenges Faced:
 When the code started to be more complex, I found it quite challenging to manage and organize. However, following the working algorithm or MVC technique as stated above is very helpful and make the process less complicated. Furthermore, I have practiced identifying and fixing code errors along the way, which has helped me gain experience in managing errors and bugs and using helpful tools to solve them.
@@ -64,7 +64,7 @@ When the code started to be more complex, I found it quite challenging to manage
 * JavaScript
 
 ### Demo:
-This is how the completed version looks like. [Amazon Clone Demo](https://supersimple.dev/projects/amazon) <br/>
+This is how the complete version looks like. [Amazon Clone Demo](https://supersimple.dev/projects/amazon) <br/>
 Note: This isn’t a demo of my actual code, but the website and its functions are about 90% the same.
 
 ### Important Note:
