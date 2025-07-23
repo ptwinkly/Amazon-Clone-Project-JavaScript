@@ -70,3 +70,4 @@ Note: This isn’t a demo of my actual code, but the website and its functions a
 ### Important Note:
 1. In order to make the test part work, you need to download and install the Jasmine framework (lib folder) from the source [here](https://github.com/jasmine/jasmine/releases/tag/v5.1.1)
 2. I do not own the images or assets in this project. They are used strictly for educational purposes.
+3. 'data' folder should have been inside 'scripts' folder.
